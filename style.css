@@ -1,0 +1,24 @@
+table {
+	padding-left: 3%;
+	color: #FFFFFF;
+}
+
+th, td {
+	width: 250px;
+	text-align: center;
+	border: 1px solid white;
+}
+
+body {
+	background-color: #545454;
+}
+
+h1, h2, h3, h4, p {
+	font-family: calibri;
+	color: #FFFFFF;
+}
+
+a {
+	color: #00FF00;
+	font-family: calibri;
+}
