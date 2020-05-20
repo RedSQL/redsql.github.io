@@ -24,7 +24,7 @@
             var update = setInterval(function(){
                 var date = new Date();
                 var markLeaveSnoflake = 709054605740343320;
-                var markLeaveDate = new Date((markLeaveSnowflake >> 22) + 1420070400000);
+                var markLeaveDate = new Date(markLeaveSnowflake / (1 << 22) + 1420070400000);
                 var msdiff = Math.abs(date - markLeaveDate);
                 var secdiff = msdiff / 1000;
                 var mindiff = secdiff / 60;
