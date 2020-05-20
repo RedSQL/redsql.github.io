@@ -26,15 +26,18 @@
                 var markLeaveSnowflake = 709054605740343320;
                 var markLeaveDate = new Date(markLeaveSnowflake / (1 << 22) + 1420070400000);
                 var msdiff = Math.abs(date - markLeaveDate);
-                var secdiff = msdiff / 1000;
-                var mindiff = secdiff / 60;
-                secdiff %= 60;
-                var hrdiff = mindiff / 60;
-                mindiff %= 60;
-                var daydiff = hrdiff * 24;
-                hrdiff %= 24;
-                 document.getElementById("thething").innerHTML = daydiff + " Days, " + hrdiff + " Hours, " + mindiff + " Minutes, and " + secdiff + " Seconds. "
-            },1000)
+
+                var secdiffTotal = msdiff / 1000;
+                var mindiffTotal = secdiff / 60;
+                var hrdiffTotal = mindiff / 60;
+                var daydiffTotal = hrdiff / 24;
+
+                var secdiff = Math.floor(secdiffTotal % 60);
+                var mindiff = Math.floor(mindiffTotal % 60);
+                var hrdiff = Math.floor(hrdiffTotal % 624);
+
+                document.getElementById("thething").innerHTML = daydiffTotal + " Days, " + hrdiff + " Hours, " + mindiff + " Minutes, and " + secdiff + " Seconds. "
+            }, 1000)
         </script>
     </head>
     <body>
