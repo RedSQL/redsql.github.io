@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Mark Counter</title>
+        <style>
+            body {
+                width: 960px;
+                margin: 0 auto;
+            }
+            .date {
+                color: #ff0000;
+                font-size: 220%;
+            }
+            .bottom-footer {
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                text-align: center;
+                position: fixed;
+            }
+        </style>
+        <script>
+            // Alright, for disclosure - I am a bad coder. Feel free to improve this mess.
+            var update = setInterval(function(){
+                var date = new Date();
+                var markLeaveDate = new Date("2020-05-10T14:49:51.606");
+                // ms
+                var msdiff = Math.abs(date - markLeaveDate);
+                // seconds
+                var secdiff = Math.ceil((msdiff / 1000) % 60);
+                // minutes
+                var mindiff = Math.ceil((msdiff / (1000 * 60)) % 60);
+                // hours 
+                var hrdiff = Math.ceil((msdiff / (1000 * 60 * 60)) % 24);
+                // days
+                var daydiff = Math.ceil(msdiff / (1000 * 60 * 60 * 24));
+                // html thing
+                 document.getElementById("thething").innerHTML = daydiff + " Days, " + hrdiff + " Hours, " + mindiff + " Minutes, and " + secdiff + " Seconds. "
+            },1000)
+        </script>
+    </head>
+    <body>
+        <h1>Mark Absence Counter</h1>
+        <p>Ever wondered for how long does Mark leave for? Well don't you worry! This (conceptual) page is made just for this purpose!</p>
+        <br><br><br><br><br><br><br>
+        <p>It has been:</p><p class='date' id='thething'></p>
+        <p>...since Mark has left the server.</p>
+    </body>
+    <footer>
+        <div class='bottom-footer'>
+            <p>Where did you go, Mark? :(</p>
+        </div>
+    </footer>
+</html>
