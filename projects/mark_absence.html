@@ -23,18 +23,16 @@
             // Alright, for disclosure - I am a bad coder. Feel free to improve this mess.
             var update = setInterval(function(){
                 var date = new Date();
-                var markLeaveDate = new Date("2020-05-10T14:49:51.606");
-                // ms
+                var markLeaveSnoflake = 709054605740343320;
+                var markLeaveDate = new Date((markLeaveSnowflake >> 22) + 1420070400000);
                 var msdiff = Math.abs(date - markLeaveDate);
-                // seconds
-                var secdiff = Math.ceil((msdiff / 1000) % 60);
-                // minutes
-                var mindiff = Math.ceil((msdiff / (1000 * 60)) % 60);
-                // hours 
-                var hrdiff = Math.ceil((msdiff / (1000 * 60 * 60)) % 24);
-                // days
-                var daydiff = Math.ceil(msdiff / (1000 * 60 * 60 * 24));
-                // html thing
+                var secdiff = msdiff / 1000;
+                var mindiff = secdiff / 60;
+                secdiff %= 60;
+                var hrdiff = mindiff / 60;
+                mindiff %= 60;
+                var daydiff = hrdiff * 24;
+                hrdiff %= 24;
                  document.getElementById("thething").innerHTML = daydiff + " Days, " + hrdiff + " Hours, " + mindiff + " Minutes, and " + secdiff + " Seconds. "
             },1000)
         </script>
