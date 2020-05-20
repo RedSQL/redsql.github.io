@@ -35,8 +35,9 @@
                 var secdiff = Math.floor(secdiffTotal % 60);
                 var mindiff = Math.floor(mindiffTotal % 60);
                 var hrdiff = Math.floor(hrdiffTotal % 24);
+                var daydiff = Math.floor(daydiffTotal);
 
-                document.getElementById("thething").innerHTML = daydiffTotal + " Days, " + hrdiff + " Hours, " + mindiff + " Minutes, and " + secdiff + " Seconds. "
+                document.getElementById("thething").innerHTML = daydiff + " Days, " + hrdiff + " Hours, " + mindiff + " Minutes, and " + secdiff + " Seconds. "
             }, 1000)
         </script>
     </head>
