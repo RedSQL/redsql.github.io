@@ -87,7 +87,7 @@
             if (Cookies.get('leavedate')) {
                 var markLeaveDate = Cookies.get('leavedate');
             } else {
-                Http.open("GET", "https://chain-snowboard.glitch.me/ts", true);
+                Http.open("GET", "https://redeclipse-server.glitch.me/ts", true);
                 Http.onreadystatechange = (e) => {
                     if (Http.readyState == 4 && Http.status == 200) {
                         Cookies.set('leavedate', Http.responseText, {expires: 3});
