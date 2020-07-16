@@ -99,6 +99,7 @@
             // temporary fix
             if (!markLeaveDate) {
                 console.log("Temporary fix, cannot retrieve ts on first try, using hardcoded value...");
+                Cookies.set('leavedate', 0, {expires: 3});
                 markLeaveDate = 0;
             }
              if (markLeaveDate == 0) {
