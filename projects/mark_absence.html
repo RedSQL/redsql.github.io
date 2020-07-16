@@ -96,6 +96,11 @@
                 }
                 Http.send();
             }
+            // temporary fix
+            if (!markLeaveDate) {
+                console.log("Temporary fix, cannot retrieve ts on first try, using hardcoded value...");
+                markLeaveDate = 0;
+            }
              if (markLeaveDate == 0) {
              // spaghetti because i don't know how to properly deal with this
                 document.getElementById("watcher").remove();
