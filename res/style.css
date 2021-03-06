@@ -10,9 +10,9 @@ th, td {
 }
 
 body {
-	background-color: #545454;
+	background-color: #2d2d2d;
     width: 960px;
-    margin: 0 auto;
+    margin: 16px auto;
 }
 
 h1, h2, h3, h4, p, li {
