@@ -63,3 +63,8 @@ a {
 .bottom-footer ul {
     padding: 0;
 }
+.navigation li, .navigation a, .navigation ul {
+    display: flex;
+    flex: 1 1 auto;
+    text-align: center;
+}
