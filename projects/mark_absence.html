@@ -1,114 +1,114 @@
 <!DOCTYPE HTML>
 <html>
-    <head>
-    <!-- Thanks, JS-Cookie for saving me headache! :-) -->
-    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../res/style.css">
-        <title>Mark's Absence Counter</title>
-        <style>
-            .bottom-footer {
-                left: 0;
-                bottom: 0;
-                width: 100%;
-                text-align: center;
-                position: fixed;
-            }
-            .date {
-                color: #ffd300;
-                font-size: 220%;
-            }
-            footer hr {
-                width: 50%;
-                margin: 0 auto;
-                bottom: 5%;
-            }
-            noscript {
-                font-size: 50px;
-                color: #ff0000;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>Mark's Absence Counter</h1>
-        <noscript>Hey, sorry to break it to ya, but this site won't do without JS. Sorry.</noscript>
-        <p>Ever wondered for how long does Mark leave for? Well don't you worry! This (conceptual) page is made just for this purpose!</p>
-        <h3>Who is Mark?</h3>
-        <p>Another server member on a Discord server that I am active on.</p>
-        <h3>Why did he leave the server?</h3>
-        <p>You see, Mark has this tendency to... Randomly leave our server, sometimes outright for no apparent reason. And so I created this page to count for how long he has left the server. He'll come back... Eventually... At least I hope so.</p>
-        <br><br>
-        <p id='watcher'>It has been:</p><p class='date' id='thething'></p>
-        <p id='watcher2'>...since Mark has left the server.</p>
-    </body>
-    <footer>
-        <div class='bottom-footer'>
-            <p id='canary'>Where did you go, Mark? :(</p>
-            <!-- EU Law compliance stuff. -->
-            <p class='legal'>Disclosure: this website utilizes cookies in order to provide a better experience to the end user, and to cache data (like last known leave date). Want to erase a singular cookie I use? Click the button below.</p>
-            <br>
-            <input id="nocookie" type="submit" name="button" value="Delete My Cookie"\>
-            <p>(The cookie will be gone until the next page visit.)</p>
-                <hr>
-                <ul>
-                    <li><a href='https://github.com/RedSQL/redsql.github.io/issues/new' class='footer-t'>Have an issue?</a></li>
-                    <li><a href='https://github.com/RedSQL/redsql.github.io/blob/master/projects/mark_absence.html' alt='(For this page)'>View Source</a></li>
-                    <li><a href='https://redsql.github.io/acknowledgements.html'>Acknowledgements</a></li>
-                </ul>
-        </div>
-    </footer>
-    <script>
-            // Alright, for disclosure - I am a bad coder. Feel free to improve this mess.
-            const Http = new XMLHttpRequest();
-            document.getElementById('nocookie').onclick = function() {
-                if (!Cookies.get('leavedate')) {
-                    alert('You did not have the cookie to begin with. (Or you already got rid of it)');
-                } else {
-                    Cookies.remove('leavedate');
-                    alert('Your singular cookie has been deleted.');
-                }
-            }            
-            if (Cookies.get('leavedate')) {
-                var markLeaveDate = Cookies.get('leavedate');
-            } else {
-                Http.open("GET", "https://redeclipse-server.glitch.me/ts", true);
-                Http.onreadystatechange = (e) => {
-                    if (Http.readyState == 4 && Http.status == 200) {
-                        Cookies.set('leavedate', Http.responseText, {expires: 3});
-                        markLeaveDate = Http.responseText;
-                    }
-                }
-                Http.send();
-            }
-            // temporary fix
-            if (!markLeaveDate) {
-                console.log("Temporary fix, cannot retrieve ts on first try, using hardcoded value...");
-                Cookies.set('leavedate', 0, {expires: 3});
-                markLeaveDate = 0;
-            }
-             if (markLeaveDate == 0) {
-             // spaghetti because i don't know how to properly deal with this
-                document.getElementById("watcher").remove();
-                document.getElementById("watcher2").remove();
-                document.getElementById("thething").style.color="#58fb55";
-                document.getElementById("thething").innerHTML = "Mark is currently present on the server.";
-                document.getElementById("canary").innerHTML = "Oh, there you are!";
-            } else {
-                var update = setInterval(function(){
-                    var date = new Date();
-                    var msdiff = Math.abs(date - markLeaveDate);
+	<head>
+	<!-- Thanks, JS-Cookie for saving me headache! :-) -->
+	<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../res/style.css">
+		<title>Mark's Absence Counter</title>
+		<style>
+			.bottom-footer {
+				left: 0;
+				bottom: 0;
+				width: 100%;
+				text-align: center;
+				position: fixed;
+			}
+			.date {
+				color: #ffd300;
+				font-size: 220%;
+			}
+			footer hr {
+				width: 50%;
+				margin: 0 auto;
+				bottom: 5%;
+			}
+			noscript {
+				font-size: 50px;
+				color: #ff0000;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Mark's Absence Counter</h1>
+		<noscript>Hey, sorry to break it to ya, but this site won't do without JS. Sorry.</noscript>
+		<p>Ever wondered for how long does Mark leave for? Well don't you worry! This (conceptual) page is made just for this purpose!</p>
+		<h3>Who is Mark?</h3>
+		<p>Another server member on a Discord server that I am active on.</p>
+		<h3>Why did he leave the server?</h3>
+		<p>You see, Mark has this tendency to... Randomly leave our server, sometimes outright for no apparent reason. And so I created this page to count for how long he has left the server. He'll come back... Eventually... At least I hope so.</p>
+		<br><br>
+		<p id='watcher'>It has been:</p><p class='date' id='thething'></p>
+		<p id='watcher2'>...since Mark has left the server.</p>
+	</body>
+	<footer>
+		<div class='bottom-footer'>
+			<p id='canary'>Where did you go, Mark? :(</p>
+			<!-- EU Law compliance stuff. -->
+			<p class='legal'>Disclosure: this website utilizes cookies in order to provide a better experience to the end user, and to cache data (like last known leave date). Want to erase a singular cookie I use? Click the button below.</p>
+			<br>
+			<input id="nocookie" type="submit" name="button" value="Delete My Cookie"\>
+			<p>(The cookie will be gone until the next page visit.)</p>
+				<hr>
+				<ul>
+					<li><a href='https://github.com/RedSQL/redsql.github.io/issues/new' class='footer-t'>Have an issue?</a></li>
+					<li><a href='https://github.com/RedSQL/redsql.github.io/blob/master/projects/mark_absence.html' alt='(For this page)'>View Source</a></li>
+					<li><a href='https://redsql.github.io/acknowledgements.html'>Acknowledgements</a></li>
+				</ul>
+		</div>
+	</footer>
+	<script>
+			// Alright, for disclosure - I am a bad coder. Feel free to improve this mess.
+			const Http = new XMLHttpRequest();
+			document.getElementById('nocookie').onclick = function() {
+				if (!Cookies.get('leavedate')) {
+					alert('You did not have the cookie to begin with. (Or you already got rid of it)');
+				} else {
+					Cookies.remove('leavedate');
+					alert('Your singular cookie has been deleted.');
+				}
+			}            
+			if (Cookies.get('leavedate')) {
+				var markLeaveDate = Cookies.get('leavedate');
+			} else {
+				Http.open("GET", "https://redeclipse-server.glitch.me/ts", true);
+				Http.onreadystatechange = (e) => {
+					if (Http.readyState == 4 && Http.status == 200) {
+						Cookies.set('leavedate', Http.responseText, {expires: 3});
+						markLeaveDate = Http.responseText;
+					}
+				}
+				Http.send();
+			}
+			// temporary fix
+			if (!markLeaveDate) {
+				console.log("Temporary fix, cannot retrieve ts on first try, using hardcoded value...");
+				Cookies.set('leavedate', 0, {expires: 3});
+				markLeaveDate = 0;
+			}
+			if (markLeaveDate == 0) {
+			// spaghetti because i don't know how to properly deal with this
+				document.getElementById("watcher").remove();
+				document.getElementById("watcher2").remove();
+				document.getElementById("thething").style.color="#58fb55";
+				document.getElementById("thething").innerHTML = "Mark is currently present on the server.";
+				document.getElementById("canary").innerHTML = "Oh, there you are!";
+			} else {
+				var update = setInterval(function(){
+					var date = new Date();
+					var msdiff = Math.abs(date - markLeaveDate);
 
-                    var secdiffTotal = msdiff / 1000;
-                    var mindiffTotal = secdiffTotal / 60;
-                    var hrdiffTotal = mindiffTotal / 60;
-                    var daydiffTotal = hrdiffTotal / 24;
+					var secdiffTotal = msdiff / 1000;
+					var mindiffTotal = secdiffTotal / 60;
+					var hrdiffTotal = mindiffTotal / 60;
+					var daydiffTotal = hrdiffTotal / 24;
 
-                    var secdiff = Math.floor(secdiffTotal % 60);
-                    var mindiff = Math.floor(mindiffTotal % 60);
-                    var hrdiff = Math.floor(hrdiffTotal % 24);
-                    var daydiff = Math.floor(daydiffTotal);
+					var secdiff = Math.floor(secdiffTotal % 60);
+					var mindiff = Math.floor(mindiffTotal % 60);
+					var hrdiff = Math.floor(hrdiffTotal % 24);
+					var daydiff = Math.floor(daydiffTotal);
 
-                    document.getElementById("thething").innerHTML = daydiff + " Days, " + hrdiff + " Hours, " + mindiff + " Minutes, and " + secdiff + " Seconds. "
-                }, 1000)
-            }
-    </script>
+					document.getElementById("thething").innerHTML = daydiff + " Days, " + hrdiff + " Hours, " + mindiff + " Minutes, and " + secdiff + " Seconds. "
+				}, 1000)
+			}
+	</script>
 </html>
