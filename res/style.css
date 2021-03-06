@@ -1,0 +1,70 @@
+table {
+	padding-left: 3%;
+	color: #FFFFFF;
+}
+
+th, td {
+	width: 250px;
+	text-align: center;
+	border: 1px solid white;
+}
+
+body {
+	background-color: #2d2d2d;
+	width: 960px;
+	margin: 16px auto;
+}
+
+h1, h2, h3, h4, p, li {
+	font-family: calibri;
+	color: #FFFFFF;
+	float: bottom;
+	margin-bottom: 7px;
+	font-size: 24px;
+}
+
+p, li {
+	font-size: 18px;
+}
+
+.legal {
+	text-align: center;
+	margin: 0 auto;
+	width: 50%;
+	bottom: 15px;
+}
+
+a {
+	color: #00FF00;
+	font-family: calibri;
+}
+
+.project-list {
+	padding-left: 2%;
+}
+
+.toBottom {
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	position: fixed;
+	text-align: center;
+}
+.bottom-footer {
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+}
+.bottom-footer li {
+	bottom: 10px !important;
+	display: inline;
+}
+.bottom-footer ul {
+	padding: 0;
+}
+.navigation li, .navigation a, .navigation ul {
+	display: flex;
+	flex: 1 1 auto;
+	text-align: center;
+}

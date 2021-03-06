@@ -1,123 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta property="og:title" content="Why I Absolutely Love Manjaro Linux!">
-    <meta property="og:site_name" content="Red's Blog">
-    <meta property="og:url" content="https://redsql.github.io/blog">
-    <meta property="og:description" content="Why is Manjaro Linux great? How does it perform?">
-    <meta property="og:type" content="article">
-    <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Manjaro-logo.svg/853px-Manjaro-logo.svg.png">
-    <meta property="keywords" content="manjaro,linux,distro,distros,arch,blog,review,feedback,experience">
-    <link rel="stylesheet" href="https://redsql.github.io/style.css"/>
-    <title>Why I Absolutely Love Manjaro Linux!</title>
-    <style>
-    .manjaro {
-        color: #35bf5c; 
-    }
-    img {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        max-height: 75%;
-        max-width: 75%;
-        background-color: #939393;
-    }
-    .bottom-footer {
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        text-align: center;
-    }
-    .bottom-footer li {
-        bottom: 10px !important;
-        display: inline;
-    }
-    .bottom-footer ul {
-        padding: 0;
-    }
-    </style>
-  </head>
-  <body>
-    <h1>Why I Absolutely Love <span class="manjaro">Manjaro</span> Linux!</h1>
-    <p>I used to be an avid Windows user, who did not want to switch away to Linux by any means possible. With enough experience gained in distros like Linux Mint and Ubuntu, I simply had enough of Linux for a lifetime... Or so it would seem.</p>
-    <p>After getting a bunch of suggestions from Discord server members about which distro should I try next, after having to pick between Debian, Fedora and Manjaro, I have went with Manjaro. I planned to go pure Arch Linux afterwards, after a point where I'll be confident enough with Linux... But, looks like it will not be the case any time soon...</p>
-    <h2>Initial Experience</h2>
-    <p>My first experience with Manjaro wasn't as smooth or pleasant as you might think. I couldn't actually boot into the installation screen, because the methods I used to burn images to USB sticks weren't really reliable or good. That resulted in grub throwing error at me, because it did not recognize the filesystem on a USB stick, and would go into "rescue" mode.</p>
-    <img src="https://i.vgy.me/zTRmMQ.png">
-    <p>But, after that got sorted, I proceeded to install Manjaro with a nice and pretty graphical install screen... Something you don't get on Arch Linux by default ;-)</p>
-    <img src="https://i.vgy.me/C6o7VV.png">
-    <p>The entire installation was swift, easy and breezy. No errors have popped up, no issues have occured, I did not have to spend any time troubleshooting anything. Reboot, boot into Manjaro, and use away.</p>
-    <p>My <u title="Desktop Environment">DE</u> of choice was <a href="https://kde.org/plasma-desktop">KDE</a>. I previously only experienced GNOME and Cinnamon, disliked the first and was okay-ish with the second. I did not have a lot of hopes for KDE, but, very gladly, I found out that it blew my expectations up, up and away! Highly, and easily customizeable interface, which not only is pleasant to see, but was also extremely easy to navigate. I was seriously surprised at how good and lean it was! So much so, that I even declared KDE to be <b>miles ahead better</b> than DE in Windows 10. For open source project to beat a component which is proprietary and which is developed by a multi-billion dollar company? That's an achievement that not a lot of projects get. Bravo, KDE, Bravo!</p>
-    <p>Anyway, my landing was smooth... ish. I missed out quite a detail, when going into Manjaro... Turns out, <b>open source NVIDIA drivers suck</b>. But that was not a problem, because Manjaro provided a special place in the System Settings, where you can <b>swap out graphical drivers on the fly</b>, via the graphical interface, and not having to witness CLI even for a second! My jaw nearly dropped at that moment, because I thought I would have to worry about stuff in the CLI, messing around in there but... No, wrong, very very wrong. After swapping drivers to <u title="NVIDIA, please open source :-("> proprietary ones</u>, it was all fine since.</p>
-    <p>With all that out of the way, now what? Well, I am working with some Windows-only applications pretty much on a daily basis, so I had to install Wine. I thought: "Ah, this is it. This is where the CLI and the other ugliness kicks in, right?". Wrong, wrong again. Manjaro provides "pamac", which is a front-end for pacman which also includes AUR helper. Pamac can be used either via GUI, or from CLI, depends on how user wants things to be. Pamac GUI interface is written in GTK. While that's not ideal, it's not a deal-breaker either. The GUI is extremely eye pleasing and relatively intuitive to navigate. I thought to myself again: "Oh man, I gotta deal with additional repositories to install Wine? That's going to be a chooooooore...". Again, wrong. On <u title="When I refer to 'Arch', I mean the Arch ecosystem in general, not just Arch Linux distro itself or it's sub-distros.">Arch</u>, you just install package. No additional repositories. No PPA's. No backports. No troubleshooting of said PPA's and backports due to maintainers leaving. None of that. Just find the package, install it, use it. Dear Arch Linux Team, I love every single one of you.</p>
-    <p>This is where I realized that... There are some packages missing from official repositories of Arch! Oh no! This is it, the kneecap of Arch that will ruin my experience???</p>
-    <p>Well... No. Welcome to <a href="https://aur.archlinux.org/">Arch User Repository</a>, or "AUR". AUR is a repository, which contains packages that are community maintained by people who are interested in that. That means if package exists on distros X,Y and Z officially, but not on Arch itself, chances are, it's in AUR, maintained by the community. Since it's a <b>user maintained</b> repository, that means bad packages can slip through. In a nutshell, just don't install packages you don't trust, or inspect <a href="https://wiki.archlinux.org/index.php/PKGBUILD">PKGBUILDs</a>.</p>
-    <p>What is missing... Uh... Oh yeah! Games! How am I going to play games on Linux? Not a lot of games support Linux natively, so what do I do now?</p>
-    <p>Long story short, <a href="https://github.com/doitsujin/dxvk">DXVK</a>. Sadly, since Micro$oft does not officialy support DirectX on Linux systems, DXVK is a DirectX to Vulkan translator, which intercepts DirectX calls that the game makes, and translates them into Vulkan, a cross-platform renderer. From my experience, all games that ran with DXVK had <b>little to no performance loss</b>. Impressive! There were barely any situations where I had to dual boot back to my Windows 10 installation in order to just play something. Good job, DXVK team!</p>
-    <p>Ever since I switched to Manjaro, everything has been seemlessly stable. Ironically, it was even more stable than Windows itself! For example, updates. Arch Linux is a "bleeding edge" or a "rolling release" distro, which means updates are pushed live as soon as they are reviewed by Arch team. Manjaro runs on a stable... er schedule.</p>
-    <img src="https://manjaro.org/img/features/repositories.png">
-    <p>So here is how the sausage is delivered:</p>
-    <ul>
-        <li>1. Arch Linux receives an update.</li>
-        <li>2. On a daily basis, the "unstable" branch of Manjaro receives those updates.</li>
-        <li>3. Then, after some testing, <b>unless</b> it's a crucial security fix, it's pushed to "Testing" branch.</li>
-        <li>4. Security fixes are pushed right away onto "Stable" branch.</li>
-        <li>5. Until the date of updating "Stable" branch, packages spend some time in the "Testing" branch, where they receive extensive testing by the community, in order to find out how stable it is, and adjust it for more stability.</li>
-        <li>6. Stable branch gets updated with latest package versions.</li>
-    </ul>
-    <p>While you shouldn't really expect stability on rolling release, this is a pretty good way to ensure stability, while staying on a bleeding edge. Good job, Manjaro Team!</p>
-    <p>That schedule led to me receiving more-or-less stable updates, while still being on the "bleeding edge" distro. I receive all the new stuff regularly, but I still manage to stay relatively stable, without having to troubleshoot every update for hours on end.</p>
-    <p>Furthermore, Manjaro also provides additional System Settings for Account Management, Time and Date, Hardware Configuration, Keyboard Configuration, Region Configuration, Kernel Configuration and Lnaguage Package Configuration. All of that, via System Settings, and a graphical interface... Absolutely rad. Installing stuff from there is also a smooth sailing with breeze. Staying on LTS kernels is fine if you want stability, but sometimes... Sometimes, experimenting won't hurt anyone? And so I installed a newer kernel to try it out. My main concern was that it wouldn't boot, due to limited NVIDIA support. I also initially thought, that you can only have one kernel on your system, and rolling back will be a pain... guess what?</p>
-    <p>TURNS OUT, YOU CAN HAVE AS MUCH GOD DAMN KERNELS ON YOUR LINUX SYSTEM AS YOU WANT! Plus, you can also boot to any of them at your own will in the grub boot menu. But that's besides the point, all of that was done... under GUI. Under GUI damn it! I did not have to open terminal <b><i>once</i></b> to install something. I've done everything under GUI.</p>
-    <img src="https://i.vgy.me/Su3PDl.png">
-    <p>At that point I started wondering: "Everything is accessible through GUI? Am I actually on Linux or is it some sneaky Windows reskin?". I seriously could not believe that a Linux distro could satisfy me that much! Everything was just so smooth, sleek and intuitive that I could not for a second believe myself that I was actually using Linux. If Ubuntu showed the the ugly side of Linux, and Linux Mint showed me okay side of Linux, Manjaro has showed me the most beautiful side of Linux I've yet seen.</p>
-    <p>I also did not believe that I could install language packages via GUI either. Oh how naive I was. Every additional language I have added in the region settings, all appeared in language packages, where I could download things for them, like dictionary, Gimp help pages, Libreoffice Still, Vim spell checking and many, many other things. All of them, installed away with a click via GUI. Absolutely mind blown.</p>
-    <h2>Experience - Months Later</h2>
-    <p>After months of experience with Manjaro, and with occassional experimenting with other distros in the meanwhile... I am happy with Manjaro as is. I do not plan on switching to anything else that is out there. Hell, I rarely swapped back to Windows, and even then, I only swapped back rarely when some games or software wouldn't behave well on Linux. I am happy with the current distro, and with what it offers. I have tried other distros in the meanwhile too, but none of them came even close to what I was experiencing with Manjaro. I thought I would switch to Arch after I would grow confidence, but... no. No I will not. I am happy with benefits Manjaro provides, on top of being an Arch based distribution!</p>
-    <p>I've heard many hardcore Arch Linux users say something among the lines of: "But what about the payoff? You don't work hard for things to work!", or "It's not true Arch! It provides user with everything out of the box and THATS NOT ARCH!". And if you think that Manjaro isn't "Arch" for any reason whatsoever... You are right :-). Manjaro is not Arch... It's Arch but better. So much unnecessary hassle just thrown out by Manjaro Team it's absolutely insane! Do NOT get me wrong, I respect Arch Linux and Arch ecosystem. After all, without them, Manjaro wouldn't be a thing. But Manjaro does things simpler, better, and nearly fully hassle-free.</p>
-    <p>For months on end Manjaro has provided me with intuitive and pleasant looking interface / GUI, along side with stable... er updates and a supportive, friendly and welcoming community. It completely blew my expectations out of the water, and provided me the experience that other distros and Windows itself can only dream of. Manjaro Team is democratic in it's OS decisions. Manjaro is purely based on user choice and what user wants. In the end, it's up to the end user to decide what they should get and shouldn't, which is why Manjaro offering it's distro with so many environments pre-configured. There are currently 3 (technically 4) official DE's - GNOME, KDE and XFCE. And a bunch of community-maintained ones, such as - awesome, i3, LXDE, cinnamon and more. It even has ARM-supported images! It also has a separate official edition without a DE, called "Architect". That's right, you can have CLI / Arch Linux experience, without Arch Linux itself! What the actual hell?</p>
-    <p>I am still yet to find a distro better than Manjaro (for me).</p>
-    <p>Links / Resources:</p>
-    <ul>
-        <li><a href="https://manjaro.org/">Manjaro Website</a></li>
-        <li><a href="https://manjaro.org/download/">Download Manjaro</a></li>
-        <li><a href="https://forum.manjaro.org/">Manjaro Forums</a></li>
-        <li><a href="https://gitlab.manjaro.org/explore/groups">Manjaro GitLab</a></li>
-        <li><a href="https://manjaro.org/donate/">Donate to Manjaro Team</a></li>
-    </ul>
-    <h1>Other Distro Experiences</h1>
-    <h2>Ubuntu</h2>
-    <p>Ubuntu was distro I tried before jumping onto Manjaro. To say I hated it, would be an exaggeration. To say I liked it, would be a lie. Most things about Ubuntu simply irritated me, and I ended up switching back to Windows a lot. IMO, if I'd rather use Windows than your distro, then <u title="Your Distro is a Piece Of Sh*t">YDPOS</u>.</p>
-    <p>To start with, GNOME interface... Yikes. I am now aware that things like Kubuntu exist, but I doubt it would really fix other problems with the distro itself, really...</p>
-    <p>Ubuntu is a <u title="Long Time Support">LTS</u> distro. Which means, feature updates are extremely rare, and you are stuck with old things until the next release of the distro comes around. That also means some things are so outdated, to the point where they are so broken and you have to manually fix broken packages yourself, and / or replace broken files.</p>
-    <p>The first thing I got hit with is... Videos wouldn't play. Videos. Out of box. Wouldn't play. Holy christ on earth, seriously? Is this what I had to deal with? After browsing for a little bit, and messing around in terminal which I did not really want to for the time being, because this is not what I anticipated when I installed Ubuntu. After installing some random package which I don't remember name of anymore, everything worked after reboot. Things are good now, right?</p>
-    <p>NO! Now I had to install Wine. How do you think you should do that? "sudo apt-get install wine"? WRONG! You see, you have to add a 3rd party repository first... Just kidding, first, you have to add i386 architecture to dpkg, then you have to execute "wget -O - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add -" which would download winehq key and add it to the apt-key keyring and after THAT, you have to add a repository to apt... <b>depending on a LTS version of the distro you have</b>. Yes, I kid you not, you have to add a specific repository depending on what version of LTS distro you are using. Jesus christ, and to think I've used this distro for a while...</p>
-    <p>After that, update apt packages and only THEN you can install wine. So much steps just to get one package running and working on your system... If you think that's bad, then oh boy, I have bad news for you, there are far worse things out there, that require way more steps than just adding key to the keyring and updating apt. </p>
-    <p>Alright, it can't get any worse than this right? Well... No, wrong. I have tried setting up wireguard up and running on the machine, since I wanted to get my hands to test out this new VPN protocol. I set it up, and... No internet. Strange. I disconnect, still no internet. I try to open terminal, it doesn't open. I try to open anything, it won't open. My system froze. Great. That's just great. I simply had no choice there, but to hard power reset my system and boot back again, which is a chore.</p>
-    <p>Oh no wait, you think that was the bad part? When I booted into Ubuntu, half of the packages I had were corrupted and I couldn't use them. Wine was corrupted, ffmpeg was corrupted, a lot of packages were corrupted. At this point I decided to not even bother further with this system anymore, wiped and formatted the partition Ubuntu was on, and forgot about it since.</p>
-    <h2>Linux Mint</h2>
-    <p>Linux Mint was the first distro I ever tried, and it was pretty decent. It offered familiar DE's, which looked like Windows' builtin DE. I went with cinnamon.</p>
-    <p>I don't remember much about it, apart from it using apt, and me having to use terminal frequently to do certain things. But overall, It was generally alright, but simply not enough or encouraging for me to switch away from Windows to something else.</p>
-    <h2>Arch Linux</h2>
-    <p>If you like researching stuff, you might know that Manjaro is an Arch-based distribution. Arch Linux on itself... is not as smooth or sleek as Manjaro.</p>
-    <p>As a start, you <b>do not have any sort of interface whatsoever</b> apart from CLI. You start with plain CLI. There is no installer either. You install Arch Linux yourself. And this is, kids, what happens when you take the "bloat" joke too far! You must follow a guide either from YouTube (but that's discouraged by the community), or from Arch Linux wiki (recommended by community). If you choose to install by the guide from wiki, forget about images. Everything is text.</p>
-    <p>Believe it or not, starting from CLI for me is not a dealbreaker. While graphical interface with installation would be nice, I can somewhat live with this too. I chose to follow the wiki word for word to install Arch Linux.</p>
-    <p>Typing out commands was a massive chore and going anywhere less 200wpm feels like snails pace. I seriously started to hate that white text on black background thing at this point. I just wanted to test the system itself, not wait until it installs packages so I can run the next command, which after I would wait for that to complete, after that I would type another command, mess around with something, wait for that to complete, etc. etc. etc.</p>
-    <p>When it came to installing grub... Error. I could not install it. I spent at least good 2+ hours trying to troubleshoot the issue, and why it wouldn't install. I still couldn't resolve it. Fantastic. I didn't even reach the point where you install and configure your DE which mind you would come without additional graphical pages such as kernel list, hardware configuration and etc.</p>
-    <p>After that, I decided to stay on Manjaro, even after gaining the experience I wanted.</p>
-    <p>P.S I am aware that people with sun shining out of their backbone and hardcore Arch Linux users will shout at me, throwing thousands of "Installer Helpers" for Arch Linux. To that I simply say: no. I'd rather use a pretty graphical installer, as compared to cloning a repo, then chmodding a file so it executes and then from there start installing, troubleshoot errors that will still occur and so on. Graphical install has been working fine for me, and I don't plan switching.</p>
-  </body>
-  	<footer>
-  	<p>Last Revised: 2020-07-24</p>
-        <div class="bottom-footer">
-            <hr>
-            <ul>
-                <li><a href='https://github.com/RedSQL/redsql.github.io/issues/new' title="Usually reserved for website-related issues. But if it's feedback, I can take that as well.">Have an issue?</a></li>
-                <li><a href='https://github.com/RedSQL/redsql.github.io/tree/master/blog/entries/why-i-love-manjaro-linux.html' title='(For this page)'>View Source</a></li>
-                <li><a href='https://redsql.github.io/acknowledgements.html'>Acknowledgements</a></li>
-                <li><a href='../'>Blog Entries</a></li>
-            </ul>
-        </div>
-    </footer>
+<head>
+	<meta charset="utf-8">
+	<meta property="og:title" content="Why I Absolutely Love Manjaro Linux!">
+	<meta property="og:site_name" content="Red's Blog">
+	<meta property="og:url" content="https://redsql.github.io/blog">
+	<meta property="og:description" content="Why is Manjaro Linux great? How does it perform?">
+	<meta property="og:type" content="article">
+	<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Manjaro-logo.svg/853px-Manjaro-logo.svg.png">
+	<meta property="keywords" content="manjaro,linux,distro,distros,arch,blog,review,feedback,experience">
+	<link rel="stylesheet" href="../../res/style.css"/>
+	<title>Why I Absolutely Love Manjaro Linux!</title>
+	<style>
+	.manjaro {
+		color: #35bf5c; 
+	}
+	img {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		max-height: 75%;
+		max-width: 75%;
+		background-color: #939393;
+	}
+	</style>
+</head>
+<body>
+	<h1>Why I Absolutely Love <span class="manjaro">Manjaro</span> Linux!</h1>
+	<p>I used to be an avid Windows user, who did not want to switch away to Linux by any means possible. With enough experience gained in distros like Linux Mint and Ubuntu, I simply had enough of Linux for a lifetime... Or so it would seem.</p>
+	<p>After getting a bunch of suggestions from Discord server members about which distro should I try next, after having to pick between Debian, Fedora and Manjaro, I have went with Manjaro. I planned to go pure Arch Linux afterwards, after a point where I'll be confident enough with Linux... But, looks like it will not be the case any time soon...</p>
+	<h2>Initial Experience</h2>
+	<p>My first experience with Manjaro wasn't as smooth or pleasant as you might think. I couldn't actually boot into the installation screen, because the methods I used to burn images to USB sticks weren't really reliable or good. That resulted in grub throwing error at me, because it did not recognize the filesystem on a USB stick, and would go into "rescue" mode.</p>
+	<img src="https://i.vgy.me/zTRmMQ.png">
+	<p>But, after that got sorted, I proceeded to install Manjaro with a nice and pretty graphical install screen... Something you don't get on Arch Linux by default ;-)</p>
+	<img src="https://i.vgy.me/C6o7VV.png">
+	<p>The entire installation was swift, easy and breezy. No errors have popped up, no issues have occured, I did not have to spend any time troubleshooting anything. Reboot, boot into Manjaro, and use away.</p>
+	<p>My <u title="Desktop Environment">DE</u> of choice was <a href="https://kde.org/plasma-desktop">KDE</a>. I previously only experienced GNOME and Cinnamon, disliked the first and was okay-ish with the second. I did not have a lot of hopes for KDE, but, very gladly, I found out that it blew my expectations up, up and away! Highly, and easily customizeable interface, which not only is pleasant to see, but was also extremely easy to navigate. I was seriously surprised at how good and lean it was! So much so, that I even declared KDE to be <b>miles ahead better</b> than DE in Windows 10. For open source project to beat a component which is proprietary and which is developed by a multi-billion dollar company? That's an achievement that not a lot of projects get. Bravo, KDE, Bravo!</p>
+	<p>Anyway, my landing was smooth... ish. I missed out quite a detail, when going into Manjaro... Turns out, <b>open source NVIDIA drivers suck</b>. But that was not a problem, because Manjaro provided a special place in the System Settings, where you can <b>swap out graphical drivers on the fly</b>, via the graphical interface, and not having to witness CLI even for a second! My jaw nearly dropped at that moment, because I thought I would have to worry about stuff in the CLI, messing around in there but... No, wrong, very very wrong. After swapping drivers to <u title="NVIDIA, please open source :-("> proprietary ones</u>, it was all fine since.</p>
+	<p>With all that out of the way, now what? Well, I am working with some Windows-only applications pretty much on a daily basis, so I had to install Wine. I thought: "Ah, this is it. This is where the CLI and the other ugliness kicks in, right?". Wrong, wrong again. Manjaro provides "pamac", which is a front-end for pacman which also includes AUR helper. Pamac can be used either via GUI, or from CLI, depends on how user wants things to be. Pamac GUI interface is written in GTK. While that's not ideal, it's not a deal-breaker either. The GUI is extremely eye pleasing and relatively intuitive to navigate. I thought to myself again: "Oh man, I gotta deal with additional repositories to install Wine? That's going to be a chooooooore...". Again, wrong. On <u title="When I refer to 'Arch', I mean the Arch ecosystem in general, not just Arch Linux distro itself or it's sub-distros.">Arch</u>, you just install package. No additional repositories. No PPA's. No backports. No troubleshooting of said PPA's and backports due to maintainers leaving. None of that. Just find the package, install it, use it. Dear Arch Linux Team, I love every single one of you.</p>
+	<p>This is where I realized that... There are some packages missing from official repositories of Arch! Oh no! This is it, the kneecap of Arch that will ruin my experience???</p>
+	<p>Well... No. Welcome to <a href="https://aur.archlinux.org/">Arch User Repository</a>, or "AUR". AUR is a repository, which contains packages that are community maintained by people who are interested in that. That means if package exists on distros X,Y and Z officially, but not on Arch itself, chances are, it's in AUR, maintained by the community. Since it's a <b>user maintained</b> repository, that means bad packages can slip through. In a nutshell, just don't install packages you don't trust, or inspect <a href="https://wiki.archlinux.org/index.php/PKGBUILD">PKGBUILDs</a>.</p>
+	<p>What is missing... Uh... Oh yeah! Games! How am I going to play games on Linux? Not a lot of games support Linux natively, so what do I do now?</p>
+	<p>Long story short, <a href="https://github.com/doitsujin/dxvk">DXVK</a>. Sadly, since Micro$oft does not officialy support DirectX on Linux systems, DXVK is a DirectX to Vulkan translator, which intercepts DirectX calls that the game makes, and translates them into Vulkan, a cross-platform renderer. From my experience, all games that ran with DXVK had <b>little to no performance loss</b>. Impressive! There were barely any situations where I had to dual boot back to my Windows 10 installation in order to just play something. Good job, DXVK team!</p>
+	<p>Ever since I switched to Manjaro, everything has been seemlessly stable. Ironically, it was even more stable than Windows itself! For example, updates. Arch Linux is a "bleeding edge" or a "rolling release" distro, which means updates are pushed live as soon as they are reviewed by Arch team. Manjaro runs on a stable... er schedule.</p>
+	<img src="https://manjaro.org/img/features/repositories.png">
+	<p>So here is how the sausage is delivered:</p>
+	<ul>
+		<li>1. Arch Linux receives an update.</li>
+		<li>2. On a daily basis, the "unstable" branch of Manjaro receives those updates.</li>
+		<li>3. Then, after some testing, <b>unless</b> it's a crucial security fix, it's pushed to "Testing" branch.</li>
+		<li>4. Security fixes are pushed right away onto "Stable" branch.</li>
+		<li>5. Until the date of updating "Stable" branch, packages spend some time in the "Testing" branch, where they receive extensive testing by the community, in order to find out how stable it is, and adjust it for more stability.</li>
+		<li>6. Stable branch gets updated with latest package versions.</li>
+	</ul>
+	<p>While you shouldn't really expect stability on rolling release, this is a pretty good way to ensure stability, while staying on a bleeding edge. Good job, Manjaro Team!</p>
+	<p>That schedule led to me receiving more-or-less stable updates, while still being on the "bleeding edge" distro. I receive all the new stuff regularly, but I still manage to stay relatively stable, without having to troubleshoot every update for hours on end.</p>
+	<p>Furthermore, Manjaro also provides additional System Settings for Account Management, Time and Date, Hardware Configuration, Keyboard Configuration, Region Configuration, Kernel Configuration and Lnaguage Package Configuration. All of that, via System Settings, and a graphical interface... Absolutely rad. Installing stuff from there is also a smooth sailing with breeze. Staying on LTS kernels is fine if you want stability, but sometimes... Sometimes, experimenting won't hurt anyone? And so I installed a newer kernel to try it out. My main concern was that it wouldn't boot, due to limited NVIDIA support. I also initially thought, that you can only have one kernel on your system, and rolling back will be a pain... guess what?</p>
+	<p>TURNS OUT, YOU CAN HAVE AS MUCH GOD DAMN KERNELS ON YOUR LINUX SYSTEM AS YOU WANT! Plus, you can also boot to any of them at your own will in the grub boot menu. But that's besides the point, all of that was done... under GUI. Under GUI damn it! I did not have to open terminal <b><i>once</i></b> to install something. I've done everything under GUI.</p>
+	<img src="https://i.vgy.me/Su3PDl.png">
+	<p>At that point I started wondering: "Everything is accessible through GUI? Am I actually on Linux or is it some sneaky Windows reskin?". I seriously could not believe that a Linux distro could satisfy me that much! Everything was just so smooth, sleek and intuitive that I could not for a second believe myself that I was actually using Linux. If Ubuntu showed the the ugly side of Linux, and Linux Mint showed me okay side of Linux, Manjaro has showed me the most beautiful side of Linux I've yet seen.</p>
+	<p>I also did not believe that I could install language packages via GUI either. Oh how naive I was. Every additional language I have added in the region settings, all appeared in language packages, where I could download things for them, like dictionary, Gimp help pages, Libreoffice Still, Vim spell checking and many, many other things. All of them, installed away with a click via GUI. Absolutely mind blown.</p>
+	<h2>Experience - Months Later</h2>
+	<p>After months of experience with Manjaro, and with occassional experimenting with other distros in the meanwhile... I am happy with Manjaro as is. I do not plan on switching to anything else that is out there. Hell, I rarely swapped back to Windows, and even then, I only swapped back rarely when some games or software wouldn't behave well on Linux. I am happy with the current distro, and with what it offers. I have tried other distros in the meanwhile too, but none of them came even close to what I was experiencing with Manjaro. I thought I would switch to Arch after I would grow confidence, but... no. No I will not. I am happy with benefits Manjaro provides, on top of being an Arch based distribution!</p>
+	<p>I've heard many hardcore Arch Linux users say something among the lines of: "But what about the payoff? You don't work hard for things to work!", or "It's not true Arch! It provides user with everything out of the box and THATS NOT ARCH!". And if you think that Manjaro isn't "Arch" for any reason whatsoever... You are right :-). Manjaro is not Arch... It's Arch but better. So much unnecessary hassle just thrown out by Manjaro Team it's absolutely insane! Do NOT get me wrong, I respect Arch Linux and Arch ecosystem. After all, without them, Manjaro wouldn't be a thing. But Manjaro does things simpler, better, and nearly fully hassle-free.</p>
+	<p>For months on end Manjaro has provided me with intuitive and pleasant looking interface / GUI, along side with stable... er updates and a supportive, friendly and welcoming community. It completely blew my expectations out of the water, and provided me the experience that other distros and Windows itself can only dream of. Manjaro Team is democratic in it's OS decisions. Manjaro is purely based on user choice and what user wants. In the end, it's up to the end user to decide what they should get and shouldn't, which is why Manjaro offering it's distro with so many environments pre-configured. There are currently 3 (technically 4) official DE's - GNOME, KDE and XFCE. And a bunch of community-maintained ones, such as - awesome, i3, LXDE, cinnamon and more. It even has ARM-supported images! It also has a separate official edition without a DE, called "Architect". That's right, you can have CLI / Arch Linux experience, without Arch Linux itself! What the actual hell?</p>
+	<p>I am still yet to find a distro better than Manjaro (for me).</p>
+	<p>Links / Resources:</p>
+	<ul>
+		<li><a href="https://manjaro.org/">Manjaro Website</a></li>
+		<li><a href="https://manjaro.org/download/">Download Manjaro</a></li>
+		<li><a href="https://forum.manjaro.org/">Manjaro Forums</a></li>
+		<li><a href="https://gitlab.manjaro.org/explore/groups">Manjaro GitLab</a></li>
+		<li><a href="https://manjaro.org/donate/">Donate to Manjaro Team</a></li>
+	</ul>
+	<h1>Other Distro Experiences</h1>
+	<h2>Ubuntu</h2>
+	<p>Ubuntu was distro I tried before jumping onto Manjaro. To say I hated it, would be an exaggeration. To say I liked it, would be a lie. Most things about Ubuntu simply irritated me, and I ended up switching back to Windows a lot. IMO, if I'd rather use Windows than your distro, then <u title="Your Distro is a Piece Of Sh*t">YDPOS</u>.</p>
+	<p>To start with, GNOME interface... Yikes. I am now aware that things like Kubuntu exist, but I doubt it would really fix other problems with the distro itself, really...</p>
+	<p>Ubuntu is a <u title="Long Time Support">LTS</u> distro. Which means, feature updates are extremely rare, and you are stuck with old things until the next release of the distro comes around. That also means some things are so outdated, to the point where they are so broken and you have to manually fix broken packages yourself, and / or replace broken files.</p>
+	<p>The first thing I got hit with is... Videos wouldn't play. Videos. Out of box. Wouldn't play. Holy christ on earth, seriously? Is this what I had to deal with? After browsing for a little bit, and messing around in terminal which I did not really want to for the time being, because this is not what I anticipated when I installed Ubuntu. After installing some random package which I don't remember name of anymore, everything worked after reboot. Things are good now, right?</p>
+	<p>NO! Now I had to install Wine. How do you think you should do that? "sudo apt-get install wine"? WRONG! You see, you have to add a 3rd party repository first... Just kidding, first, you have to add i386 architecture to dpkg, then you have to execute "wget -O - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add -" which would download winehq key and add it to the apt-key keyring and after THAT, you have to add a repository to apt... <b>depending on a LTS version of the distro you have</b>. Yes, I kid you not, you have to add a specific repository depending on what version of LTS distro you are using. Jesus christ, and to think I've used this distro for a while...</p>
+	<p>After that, update apt packages and only THEN you can install wine. So much steps just to get one package running and working on your system... If you think that's bad, then oh boy, I have bad news for you, there are far worse things out there, that require way more steps than just adding key to the keyring and updating apt. </p>
+	<p>Alright, it can't get any worse than this right? Well... No, wrong. I have tried setting up wireguard up and running on the machine, since I wanted to get my hands to test out this new VPN protocol. I set it up, and... No internet. Strange. I disconnect, still no internet. I try to open terminal, it doesn't open. I try to open anything, it won't open. My system froze. Great. That's just great. I simply had no choice there, but to hard power reset my system and boot back again, which is a chore.</p>
+	<p>Oh no wait, you think that was the bad part? When I booted into Ubuntu, half of the packages I had were corrupted and I couldn't use them. Wine was corrupted, ffmpeg was corrupted, a lot of packages were corrupted. At this point I decided to not even bother further with this system anymore, wiped and formatted the partition Ubuntu was on, and forgot about it since.</p>
+	<h2>Linux Mint</h2>
+	<p>Linux Mint was the first distro I ever tried, and it was pretty decent. It offered familiar DE's, which looked like Windows' builtin DE. I went with cinnamon.</p>
+	<p>I don't remember much about it, apart from it using apt, and me having to use terminal frequently to do certain things. But overall, It was generally alright, but simply not enough or encouraging for me to switch away from Windows to something else.</p>
+	<h2>Arch Linux</h2>
+	<p>If you like researching stuff, you might know that Manjaro is an Arch-based distribution. Arch Linux on itself... is not as smooth or sleek as Manjaro.</p>
+	<p>As a start, you <b>do not have any sort of interface whatsoever</b> apart from CLI. You start with plain CLI. There is no installer either. You install Arch Linux yourself. And this is, kids, what happens when you take the "bloat" joke too far! You must follow a guide either from YouTube (but that's discouraged by the community), or from Arch Linux wiki (recommended by community). If you choose to install by the guide from wiki, forget about images. Everything is text.</p>
+	<p>Believe it or not, starting from CLI for me is not a dealbreaker. While graphical interface with installation would be nice, I can somewhat live with this too. I chose to follow the wiki word for word to install Arch Linux.</p>
+	<p>Typing out commands was a massive chore and going anywhere less 200wpm feels like snails pace. I seriously started to hate that white text on black background thing at this point. I just wanted to test the system itself, not wait until it installs packages so I can run the next command, which after I would wait for that to complete, after that I would type another command, mess around with something, wait for that to complete, etc. etc. etc.</p>
+	<p>When it came to installing grub... Error. I could not install it. I spent at least good 2+ hours trying to troubleshoot the issue, and why it wouldn't install. I still couldn't resolve it. Fantastic. I didn't even reach the point where you install and configure your DE which mind you would come without additional graphical pages such as kernel list, hardware configuration and etc.</p>
+	<p>After that, I decided to stay on Manjaro, even after gaining the experience I wanted.</p>
+	<p>P.S I am aware that people with sun shining out of their backbone and hardcore Arch Linux users will shout at me, throwing thousands of "Installer Helpers" for Arch Linux. To that I simply say: no. I'd rather use a pretty graphical installer, as compared to cloning a repo, then chmodding a file so it executes and then from there start installing, troubleshoot errors that will still occur and so on. Graphical install has been working fine for me, and I don't plan switching.</p>
+</body>
+	<footer>
+	<p>Last Revised: 2020-07-24</p>
+		<div class="bottom-footer">
+			<hr>
+			<ul>
+				<li><a href='https://github.com/RedSQL/redsql.github.io/issues/new' title="Usually reserved for website-related issues. But if it's feedback, I can take that as well.">Have an issue?</a></li>
+				<li><a href='https://github.com/RedSQL/redsql.github.io/tree/master/blog/entries/why-i-love-manjaro-linux.html' title='(For this page)'>View Source</a></li>
+				<li><a href='https://redsql.github.io/acknowledgements.html'>Acknowledgements</a></li>
+				<li><a href='../'>Blog Entries</a></li>
+			</ul>
+		</div>
+	</footer>
 </html>
