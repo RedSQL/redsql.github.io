@@ -27,6 +27,13 @@ p, li {
     font-size: 18px;
 }
 
+.legal {
+    text-align: center;
+    margin: 0 auto;
+    width: 50%;
+    bottom: 15px;
+}
+
 a {
 	color: #00FF00;
 	font-family: calibri;
