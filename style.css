@@ -43,3 +43,16 @@ a {
     position: fixed;
     text-align: center;
 }
+.bottom-footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+.bottom-footer li {
+    bottom: 10px !important;
+    display: inline;
+}
+.bottom-footer ul {
+    padding: 0;
+}
