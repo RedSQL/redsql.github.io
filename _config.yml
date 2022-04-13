@@ -1,0 +1,5 @@
+plugins:
+  - jekyll-feed
+title: Blog of RedSQL
+description: Blog of RedSQL - tech, gaming, linux, foss and more!
+author: RedSQL
