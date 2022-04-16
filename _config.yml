@@ -17,3 +17,6 @@ def_description: Where all my stuff goes to rot...
 # feed settings
 feed:
     excerpt_only: true
+
+# chraset fix attempt
+encoding: UTF-8
