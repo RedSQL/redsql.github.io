@@ -1,27 +1,28 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Red's Blog Spot</title>
-		<meta charset="UTF-8">
-		<link rel="stylesheet" href="../res/style.css"/>
-		<link rel="alternate" type="application/atom+xml" title="Blog of RedSQL" href="/feed.xml">
-	</head>
+---
+layout: default
+title: Red's Blog Spot
+---
 	<body>
+	<a href="/">&#60;&#60; Main site</a>
 	<h1>Entries</h1>
 	<p>All opinions that I publish are my own, unless explicitly stated otherwise (e.g to make a point, or to quote someone). They do not and will not reflect opinions of anyone, or anything I am associated with.</p>
 	<p>Listed in published order. (New -> Old).</p>
+	<p>Entry index:</p>
 	<ul>
-		<li><a href="entries/wayland.html">State of Wayland as of Q1 2021.</a> (Published: 2021-03-23)</li>
-		<li><a href="entries/cyberpunk2077-review.html">Honest Cyberpunk 2077 Review.</a> (Published: 2021-03-06)</li>
-		<li><a href="entries/pro_wayland_horseshit.html"><abbr title="Warning! Satire!">I'm tired of this pro-Wayland horseshit</abbr></a> (Published: 2021-02-10)</li>
-		<li><a href="entries/why-i-love-manjaro-linux.html">Why I LOVE Manjaro Linux!</a> (Published: 2020-07-23)</li>
-		<li><a href="entries/copyright.html">CoPyRiGhT!1 (Or why I dislike it.)</a> (Published: 2020-06-24) (<b>Very</b> outdated)</li>
+		{% for post in site.posts %}
+		{% unless post.tags contains "outdated" %}
+		<li><a href="{{ post.url }}">{{ post.title }}</a> (Published: <time datetime="{{ post.date | date: '%F' }}">{{ post.date | date: '%F' }}</time>){% if post.tags contains "satire" %} (Satire) {% endif %}</li>
+		{% endunless %}
+		{% endfor %}
+	</ul>
+	<p><abbr title="Outdated entries are blog posts that I made in the past that either no longer align with my views, or are no longer actual. You can still read them, though I recommend reading most recent ones, if available.">Outdated entries</abbr> index:</p>
+	<ul>
+		{% for post in site.posts %}
+		{% if post.tags contains "outdated" %}
+		<li><a href="{{ post.url }}">{{ post.title }}</a> (Published: <time datetime="{{ post.date | date: '%F' }}">{{ post.date | date: '%F' }}</time>)</li>
+		{% endif %}
+		{% endfor %}
 	</ul>
 	</body>
-	<footer>
-	<div class="bottom-footer">
-		<p>Code for the pages is under the same license as the repo license. <abbr title="i.e Content that is made by me, NOT imported 3rd party content.">Original contents</abbr> within the pages is licensed under CC-BY 4.0 unless otherwise noted.</p>
-		<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
-	</div>
-	</footer>
+	{% include content-disclaimer.html %}
 </html>
