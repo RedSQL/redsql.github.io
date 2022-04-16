@@ -1,7 +1,7 @@
 plugins:
   - jekyll-feed
-title: Red's Blog
-description: Red's Blog - tech, gaming, linux, foss and more!
+title: "Red's Blog"
+description: "Red's Blog - tech, gaming, linux, foss and more!"
 author: RedSQL
 url: https://redsql.github.io
 permalink: /blog/entries/:title:output_ext
@@ -11,8 +11,8 @@ markdown:    kramdown
 highlighter: rouge
 
 # defaults
-def_title: Red's Pile
-def_description: Where all my stuff goes to rot...
+def_title: "Red's Pile"
+def_description: "Where all my stuff goes to rot..."
 
 # feed settings
 feed:
