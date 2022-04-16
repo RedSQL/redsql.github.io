@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta property="og:title" content="{{ page.title }}">
+		<meta property="og:site_name" content="{{ site.title }}">
+		<meta property="og:url" content="https://redsql.github.io/blog">
+		<meta property="og:description" content="{{ page.description }}">
+		<meta property="og:type" content="article">
+		<meta property="article:tag" content="{{ page.meta_tags }}">
+		<meta property="keywords" content="{{ page.meta_tags }}">
+		<link rel="stylesheet" href="/res/monokai.css">
+		<link rel="stylesheet" href="/res/style.css"/>
+		<link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="/feed.xml">
+		<title>{{ page.title }}</title>
+	</head>
+	<body>
+		<a href="/blog">&#60;&#60;&#60;&#60; Index</a></li>
+		{% if page.tags contains "outdated" %}
+			{% include post-outdated.html %}
+			<hr>
+		{% endif %}
+		{{ content }}
+	</body>
+	<footer>
+	<p>Last Revised: {% if page.revdate == "todo" %} Oops, looks like I forgot to add revision date :/ {% else %} <time datetime="{{ page.revdate }}">{{ page.revdate }}</time> {% endif %}</p>
+		<div class="bottom-footer">
+			<hr>
+			<ul>
+				<li><a href='https://github.com/RedSQL/redsql.github.io/issues/new' title="Usually reserved for website-related issues. But if it's feedback, I can take that as well.">Have an issue?</a></li>
+				<!-- page.name returns blank for some reason, so page.path it is -->
+				<li><a href='https://github.com/RedSQL/redsql.github.io/tree/master/{{ page.path }}' title='(For this page)'>View Source</a></li>
+				<li><a href='https://redsql.github.io/acknowledgements.html'>Acknowledgements</a></li>
+				<li><a href='../'>Blog Entries</a></li>
+			</ul>
+			<div id="postnav">
+				{% if page.previous.url %}
+					<a class="prev" href="{{page.previous.url}}">&#60;&#60; Previous post ({{ page.previous.title }})</a>
+				{% endif %}
+					<br>
+				{% if page.next.url %}
+					<a class="next" href="{{page.next.url}}">Next post ({{ page.next.title }}) &#62;&#62;</a>
+				{% endif %}
+			</div>
+			<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+		</div>
+	</footer>
+</html>
