@@ -18,7 +18,10 @@
 		<a href="/blog">&#60;&#60;&#60;&#60; Index</a></li>
 		{% if page.tags contains "outdated" %}
 			{% include post-outdated.html %}
-			<hr>
+		{% if page.replaces %}
+			{% include replacement.html %}
+		<hr>
+		{% endif %}
 		{% endif %}
 		{{ content }}
 	</body>
