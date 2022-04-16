@@ -1,7 +1,7 @@
 plugins:
   - jekyll-feed
 title: "Reds Blog"
-description: "Red's Blog - tech, gaming, linux, foss and more!"
+description: "Reds Blog - tech, gaming, linux, foss and more!"
 author: RedSQL
 url: https://redsql.github.io
 permalink: /blog/entries/:title:output_ext
