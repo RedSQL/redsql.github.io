@@ -9,13 +9,27 @@ th, td {
 	border: 1px solid white;
 }
 
+code {
+	background-color: #151515;
+}
+
+pre {
+    white-space: pre-wrap;
+	color: #FFFFFF;
+}
+
+pre code {
+	background-color: transparent;
+}
+
 body {
 	background-color: #2d2d2d;
+	color: #FFFFFF;
 	width: 960px;
 	margin: 16px auto;
 }
 
-h1, h2, h3, h4, p, li, abbr {
+h1, h2, h3, h4, p, li, abbr, details, summary {
 	font-family: calibri;
 	color: #FFFFFF;
 	float: bottom;
@@ -36,6 +50,21 @@ p, li, abbr {
 a {
 	color: #00FF00;
 	font-family: calibri;
+}
+
+.toc-box {
+	background-color: #212121;
+	border: 4px solid #6f6f6f;
+	width: 30%;
+	padding: 2%;
+	margin: 12px;
+}
+.toc-box h1, .toc-box h2, .toc-box p, .toc-box a, .toc-box li, .toc-box ul, .toc-box ol {
+	font-size: 12px;
+}
+
+.nested {
+	margin-left: 1rem;
 }
 
 .project-list {
