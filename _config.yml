@@ -1,10 +1,11 @@
 plugins:
   - jekyll-feed
+  - jekyll-redirect-from
 title: "Reds Blog"
 description: "Reds Blog - tech, gaming, linux, foss and more!"
 author: RedSQL
 url: https://redsql.github.io
-permalink: /blog/entries/:title:output_ext
+permalink: /blog/:year/:month/:day/:title:output_ext
 
 # Conversion
 markdown:    kramdown
