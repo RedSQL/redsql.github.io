@@ -55,8 +55,8 @@ a {
 .toc-box {
 	background-color: #212121;
 	border: 5px solid #6f6f6f;
-	width: 30%;
-	padding: 2%;
+	width: 40%;
+	padding: 1%;
 	margin: 12px;
 }
 .toc-box h1, .toc-box h2, .toc-box p, .toc-box a, .toc-box li, .toc-box ul, .toc-box ol {
@@ -64,8 +64,8 @@ a {
 	margin: 5px;
 }
 
-.nested {
-	margin-left: 1rem;
+.nested a {
+	margin-left: 2rem;
 }
 
 .project-list {
