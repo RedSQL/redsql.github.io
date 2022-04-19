@@ -16,7 +16,15 @@
 	</head>
 	<body>
 		<div class="top-header">
-			<a href="/blog">&lt;&lt;&lt;&lt; Index</a>
+			<span class="float-left">
+				<a href="/blog">&lt;&lt;&lt;&lt; Index</a>
+			</span>
+			<span class="float-right">
+				<!-- page.name returns blank for some reason, so page.path it is -->
+				<a href="https://github.com/RedSQL/redsql.github.io/tree/master/{{ page.path }}" title="(For this page)">Source</a>
+				<a href="/feed.xml">RSS</a>
+			</span>
+			<br>
 			<div id="postnav">
 				{% if page.previous.url %}
 					<a class="prev" href="{{page.previous.url}}">&lt;&lt; Previous post ({{ page.previous.title }})</a>
@@ -41,13 +49,12 @@
 		<div class="bottom-footer">
 			<hr>
 			<ul>
-				<li><a href="https://github.com/RedSQL/redsql.github.io/issues/new" title="Usually reserved for website-related issues. But if it's feedback, I can take that as well.">Have an issue?</a></li>
-				<!-- page.name returns blank for some reason, so page.path it is -->
-				<li><a href="https://github.com/RedSQL/redsql.github.io/tree/master/{{ page.path }}" title="(For this page)">View Source</a></li>
+				<li><a href="https://github.com/RedSQL/redsql.github.io/issues/new">Feedback / Issues</a></li>
 				<li><a href="https://redsql.github.io/acknowledgements.html">Acknowledgements</a></li>
-				<li><a href="../">Blog Entries</a></li>
 			</ul>
-			<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+			<p>Content license (legal):</p>
+			<a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a><br>
+			<a href="https://creativecommons.org/licenses/by/4.0">Layman friendly license text</a>
 		</div>
 	</footer>
 </html>
