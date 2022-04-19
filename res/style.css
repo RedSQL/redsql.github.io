@@ -54,13 +54,14 @@ a {
 
 .toc-box {
 	background-color: #212121;
-	border: 4px solid #6f6f6f;
+	border: 5px solid #6f6f6f;
 	width: 30%;
 	padding: 2%;
 	margin: 12px;
 }
 .toc-box h1, .toc-box h2, .toc-box p, .toc-box a, .toc-box li, .toc-box ul, .toc-box ol {
 	font-size: 12px;
+	margin: 5px;
 }
 
 .nested {
