@@ -15,7 +15,18 @@
 		<title>{{ page.title }}</title>
 	</head>
 	<body>
-		<a href="/blog">&#60;&#60;&#60;&#60; Index</a></li>
+		<div class="top-header">
+			<a href="/blog">&lt;&lt;&lt;&lt; Index</a>
+			<div id="postnav">
+				{% if page.previous.url %}
+					<a class="prev" href="{{page.previous.url}}">&lt;&lt; Previous post ({{ page.previous.title }})</a>
+				{% endif %}
+					<br>
+				{% if page.next.url %}
+					<a class="next" href="{{page.next.url}}">Next post ({{ page.next.title }}) &gt;&gt;</a>
+				{% endif %}
+			</div>
+		</div>
 		{% if page.tags contains "outdated" %}
 			{% include post-outdated.html %}
 		{% if page.replaces %}
@@ -30,21 +41,12 @@
 		<div class="bottom-footer">
 			<hr>
 			<ul>
-				<li><a href='https://github.com/RedSQL/redsql.github.io/issues/new' title="Usually reserved for website-related issues. But if it's feedback, I can take that as well.">Have an issue?</a></li>
+				<li><a href="https://github.com/RedSQL/redsql.github.io/issues/new" title="Usually reserved for website-related issues. But if it's feedback, I can take that as well.">Have an issue?</a></li>
 				<!-- page.name returns blank for some reason, so page.path it is -->
-				<li><a href='https://github.com/RedSQL/redsql.github.io/tree/master/{{ page.path }}' title='(For this page)'>View Source</a></li>
-				<li><a href='https://redsql.github.io/acknowledgements.html'>Acknowledgements</a></li>
-				<li><a href='../'>Blog Entries</a></li>
+				<li><a href="https://github.com/RedSQL/redsql.github.io/tree/master/{{ page.path }}" title="(For this page)">View Source</a></li>
+				<li><a href="https://redsql.github.io/acknowledgements.html">Acknowledgements</a></li>
+				<li><a href="../">Blog Entries</a></li>
 			</ul>
-			<div id="postnav">
-				{% if page.previous.url %}
-					<a class="prev" href="{{page.previous.url}}">&#60;&#60; Previous post ({{ page.previous.title }})</a>
-				{% endif %}
-					<br>
-				{% if page.next.url %}
-					<a class="next" href="{{page.next.url}}">Next post ({{ page.next.title }}) &#62;&#62;</a>
-				{% endif %}
-			</div>
 			<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
 		</div>
 	</footer>

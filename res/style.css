@@ -92,6 +92,14 @@ a {
 .bottom-footer ul {
 	padding: 0;
 }
+
+.top-header {
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+}
+
 .navigation li, .navigation a, .navigation ul {
 	display: flex;
 	flex: 1 1 auto;
