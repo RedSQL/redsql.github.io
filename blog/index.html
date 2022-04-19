@@ -19,7 +19,7 @@ title: Red's Blog Spot
 	<ul>
 		{% for post in site.posts %}
 		{% if post.tags contains "outdated" %}
-		<li><a href="{{ post.url }}">{{ post.title }}</a> (Published: <time datetime="{{ post.date | date: '%F' }}">{{ post.date | date: '%F' }}</time>)</li>
+		<li><a href="{{ post.url }}">{{ post.title }}</a> (Published: <time datetime="{{ post.date | date: '%F' }}">{{ post.date | date: '%F' }}</time>) {% if post.replaces %}<abbr title="There is a newer/better version available of this post.">*</abbr>{% endif %}</li>
 		{% endif %}
 		{% endfor %}
 	</ul>
