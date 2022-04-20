@@ -2,6 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta property="og:title" content="{{ page.title }}">
 		<meta property="og:site_name" content="{{ site.title }}">
 		<meta property="og:url" content="https://redsql.github.io/blog">
@@ -45,7 +46,7 @@
 		{{ content }}
 	</body>
 	<footer>
-	<p>Last Revised: {% if page.revdate == "todo" %} Oops, looks like I forgot to add revision date :/ {% else %} <time datetime="{{ page.revdate }}">{{ page.revdate }}</time> {% endif %}</p>
+	<sub>Last Revised: {% if page.revdate == "todo" %} Oops, looks like I forgot to add revision date :/ {% else %} <time datetime="{{ page.revdate }}">{{ page.revdate }}</time> {% endif %}</sub>
 		<div class="bottom-footer">
 			<hr>
 			<ul>

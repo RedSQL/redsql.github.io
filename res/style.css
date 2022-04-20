@@ -1,3 +1,7 @@
+html {
+	display: flex;
+}
+
 table {
 	padding-left: 3%;
 	color: #FFFFFF;
