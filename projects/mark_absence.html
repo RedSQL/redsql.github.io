@@ -60,42 +60,51 @@
 			// Alright, for disclosure - I am a bad coder. Feel free to improve this mess.
 			const Http = new XMLHttpRequest();
 			document.getElementById('nocookie').onclick = function() {
-				if (!Cookies.get('leavedate')) {
+				if (!Cookies.get('leavedata') && !Cookies.get('leavedate')) {
 					alert('You did not have the cookie to begin with. (Or you already got rid of it)');
 				} else {
 					Cookies.remove('leavedate');
+					Cookies.remove('leavedata');
 					alert('Your singular cookie has been deleted.');
 				}
-			}            
-			if (Cookies.get('leavedate')) {
-				var markLeaveDate = Cookies.get('leavedate');
+			}
+                        let markLeaveData = {};
+			if (Cookies.get('leavedata')) {
+				markLeaveData = JSON.parse(Cookies.get('leavedata'));
+                                markLeaveData.since = +new Date(markLeaveData.since);
 			} else {
-				Http.open("GET", "https://redeclipse-server.glitch.me/ts", true);
+				Http.open("GET", "https://pavluk.org/markabsence.json", true);
 				Http.onreadystatechange = (e) => {
-					if (Http.readyState == 4 && Http.status == 200) {
-						Cookies.set('leavedate', Http.responseText, {expires: 3});
-						markLeaveDate = Http.responseText;
-					}
-				}
+				    if (Http.readyState != 4 || Http.status != 200) return;
+				    markLeaveData = JSON.parse(Http.responseText);
+				    markLeaveData.since = +new Date(markLeaveData.since));
+				    Cookies.set('leavedata', Http.responseText, {expires: 3});
+				};
 				Http.send();
 			}
 			// temporary fix
-			if (!markLeaveDate) {
+			if (!markLeaveData) {
 				console.log("Temporary fix, cannot retrieve ts on first try, using hardcoded value...");
-				Cookies.set('leavedate', 0, {expires: 3});
-				markLeaveDate = 0;
+				Cookies.set('leavedata', '{}', {expires: 3});
+				markLeaveData = {present:true,since:null};
 			}
-			if (markLeaveDate == 0) {
-			// spaghetti because i don't know how to properly deal with this
-				document.getElementById("watcher").remove();
-				document.getElementById("watcher2").remove();
+                        if (markLeaveData.present) {
 				document.getElementById("thething").style.color="#58fb55";
-				document.getElementById("thething").innerHTML = "Mark is currently present on the server.";
+				document.getElementById("watcher2").remove();
+				if (markLeaveData.since == null) {
+					document.getElementById("watcher").remove();
+					document.getElementById("thething").innerHTML = "Mark is currently present on the server.";
+				} else {
+					document.getElementById("watcher").innerHTML = "Mark has been <b>present</b> on the server for:";
+				}
 				document.getElementById("canary").innerHTML = "Oh, there you are!";
-			} else {
+			} else if (markLeaveData.since == null) {
+				document.getElementById("thething").innerHTML = "an unknown amount of time";
+			}
+			if (markLeaveData.since != null) {
 				var update = setInterval(function(){
 					var date = new Date();
-					var msdiff = Math.abs(date - markLeaveDate);
+					var msdiff = Math.abs(date - markLeaveData.since);
 
 					var secdiffTotal = msdiff / 1000;
 					var mindiffTotal = secdiffTotal / 60;
