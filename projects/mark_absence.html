@@ -68,16 +68,16 @@
 					alert('Your singular cookie has been deleted.');
 				}
 			}
-                        let markLeaveData = {};
+			let markLeaveData = {};
 			if (Cookies.get('leavedata')) {
 				markLeaveData = JSON.parse(Cookies.get('leavedata'));
-                                markLeaveData.since = +new Date(markLeaveData.since);
+				markLeaveData.since = +new Date(markLeaveData.since);
 			} else {
 				Http.open("GET", "https://pavluk.org/markabsence.json", true);
 				Http.onreadystatechange = (e) => {
 				    if (Http.readyState != 4 || Http.status != 200) return;
 				    markLeaveData = JSON.parse(Http.responseText);
-				    markLeaveData.since = +new Date(markLeaveData.since));
+				    markLeaveData.since = +new Date(markLeaveData.since);
 				    Cookies.set('leavedata', Http.responseText, {expires: 3});
 				};
 				Http.send();
@@ -88,9 +88,9 @@
 				Cookies.set('leavedata', '{}', {expires: 3});
 				markLeaveData = {present:true,since:null};
 			}
-                        if (markLeaveData.present) {
-				document.getElementById("thething").style.color="#58fb55";
-				document.getElementById("watcher2").remove();
+                if (markLeaveData.present) {
+					document.getElementById("thething").style.color="#58fb55";
+					document.getElementById("watcher2").remove();
 				if (markLeaveData.since == null) {
 					document.getElementById("watcher").remove();
 					document.getElementById("thething").innerHTML = "Mark is currently present on the server.";
