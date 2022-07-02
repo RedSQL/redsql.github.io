@@ -17,17 +17,23 @@ title: Red's Pile
 	<body>
 		<h1>I'm Red, and welcome to my dumpster.</h1>
 		<div class="navigation">
-		<nav>
-		<ul>
-			<li><a href="https://github.com/RedSQL/redsql.github.io" title="(For this site)">Source Code</a></li>
-			<li><a href='acknowledgements.html'>Acknowledgements</a></li>
-			<li><a href='blog'>Blog Entries</a></li>
-			<li><a href='projects.html'>Projects</a></li>
-			<li><a href='about.html'>About Me</a></li>
-		</ul>
-		</nav>
+			<nav>
+				<ul>
+					<li><a href="https://github.com/RedSQL/redsql.github.io" title="(For this site)">Source Code</a></li>
+					<li><a href='acknowledgements.html'>Acknowledgements</a></li>
+					<li><a href='blog'>Blog Entries</a></li>
+					<li><a href='projects.html'>Projects</a></li>
+					<li><a href='about.html'>About Me</a></li>
+				</ul>
+			</nav>
 		</div>
-		<h2>Places I am on</h2>
+		<div class="last-post">
+			<h1>Latest blog post:</h1>
+			{% for post in site.posts limit: 1 %}
+				<p><a href="{{ post.url }}">{{ post.title }}</a> (Published: <time datetime="{{ post.date | date: '%F' }}">{{ post.date | date: '%F' }}</time>) {% if post.replaces %}<abbr title="There is a newer/better version available of this post.">*</abbr>{% endif %}</p>
+			{% endfor %}
+		</div>
+		<h1>Places I am on</h1>
 		<ul>
 			<li><a href="https://www.youtube.com/channel/UCNdglw4tpYS3B96nS9tSuZw">YouTube</a></li>
 			<li><a href='https://mastodon.social/@redeclipse' title="I don't check this often! Be aware!">Mastodon</a></li>

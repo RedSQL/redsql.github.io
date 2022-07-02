@@ -55,6 +55,10 @@ a {
 	font-family: calibri;
 }
 
+.last-post p {
+	line-height: 12px;
+}
+
 .toc-box {
 	background-color: #212121;
 	border: 5px solid #6f6f6f;
