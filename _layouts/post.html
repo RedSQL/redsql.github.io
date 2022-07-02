@@ -36,12 +36,17 @@
 				{% endif %}
 			</div>
 		</div>
+		<!-- Post outdated -->
 		{% if page.tags contains "outdated" %}
 			{% include post-outdated.html %}
+		{% endif %}
+		<!-- Post has unmarked spoilers -->
+		{% if page.tags contains "spoiler" %}
+			{% include spoiler.html %}
+		{% endif %}
+		<!-- Replacement post available -->
 		{% if page.replaces %}
 			{% include replacement.html %}
-		<hr>
-		{% endif %}
 		{% endif %}
 		{{ content }}
 	</body>
