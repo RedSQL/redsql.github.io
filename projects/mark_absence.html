@@ -3,24 +3,13 @@
 	<head>
 	<!-- Thanks, JS-Cookie for saving me headache! :-) -->
 	<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="../res/style.css">
 		<title>Mark's Absence Counter</title>
 		<style>
-			.bottom-footer {
-				left: 0;
-				bottom: 0;
-				width: 100%;
-				text-align: center;
-				position: fixed;
-			}
 			.date {
 				color: #ffd300;
 				font-size: 220%;
-			}
-			footer hr {
-				width: 50%;
-				margin: 0 auto;
-				bottom: 5%;
 			}
 			noscript {
 				font-size: 50px;
@@ -40,7 +29,6 @@
 		<p id='watcher'>It has been:</p><p class='date' id='thething'></p>
 		<p id='watcher2'>...since Mark has left the server.</p>
 	</body>
-	<!-- todo: some weird stuff going on here, fix it later kthx -->
 	<footer>
 		<div class='bottom-footer'>
 			<p id='canary'>Where did you go, Mark? :(</p>
@@ -89,15 +77,15 @@
 				Cookies.set('leavedata', '{}', {expires: 3});
 				markLeaveData = {present:true,since:null};
 			}
-                if (markLeaveData.present) {
-					document.getElementById("thething").style.color="#58fb55";
-					document.getElementById("watcher2").remove();
-				if (markLeaveData.since == null) {
-					document.getElementById("watcher").remove();
-					document.getElementById("thething").innerHTML = "Mark is currently present on the server.";
-				} else {
-					document.getElementById("watcher").innerHTML = "Mark has been <b>present</b> on the server for:";
-				}
+			if (markLeaveData.present) {
+				document.getElementById("thething").style.color="#58fb55";
+				document.getElementById("watcher2").remove();
+			if (markLeaveData.since == null) {
+				document.getElementById("watcher").remove();
+				document.getElementById("thething").innerHTML = "Mark is currently present on the server.";
+			} else {
+				document.getElementById("watcher").innerHTML = "Mark has been <b>present</b> on the server for:";
+			}
 				document.getElementById("canary").innerHTML = "Oh, there you are!";
 			} else if (markLeaveData.since == null) {
 				document.getElementById("thething").innerHTML = "an unknown amount of time";
