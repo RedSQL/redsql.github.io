@@ -7,4 +7,4 @@ I am not a very good coder. Sometimes, my code can be a little bit messy from ti
 # License
 The code for this project is licensed under MIT License. See LICENSE file [here](https://github.com/RedSQL/redsql.github.io/blob/master/LICENSE). 
 
-Personally written / published content within the blog is licensed under [CC-BY 4.0 License](https://creativecommons.org/licenses/by/4.0/).
+Blog content, like self-written text and self-made images, are licensed under [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/legalcode/). If you want a non-legalese breakdown of it - refer to [this page from the same site](https://creativecommons.org/licenses/by/4.0/).
