@@ -30,39 +30,46 @@ if (!markLeaveData) {
 	markLeaveData = {present:true,since:null};
 	invalidData = true;
 }
-if (markLeaveData.present) {
-	document.getElementById("thething").style.color="#58fb55";
-	document.getElementById("watcher2").remove();
-	if (markLeaveData.since == null) {
-		document.getElementById("watcher").remove();
-		if (invalidData === true) { 
-			document.getElementById("thething").innerHTML = "Mark is currently present on the server<b style='color:#FF0000'>*</b>";
-			document.getElementById("invalidDataCanary").innerHTML = "<b style='color:#FF0000'>*</b> The data you see originated from a hardcoded value. It's likely that it isn't accurate.";
+var updateTimerRep = setInterval(function() {
+	if (markLeaveData.present) {
+		clearInterval(updateTimerRep);
+		document.getElementById("thething").style.color="#58fb55";
+		document.getElementById("watcher2").remove();
+		if (markLeaveData.since == null) {
+			document.getElementById("watcher").remove();
+			if (invalidData === true) { 
+				document.getElementById("thething").innerHTML = "Mark is currently present on the server<b style='color:#FF0000'>*</b>";
+				document.getElementById("invalidDataCanary").innerHTML = "<b style='color:#FF0000'>*</b> The data you see originated from a hardcoded value. It's likely that it isn't accurate.";
+			} else {
+				document.getElementById("thething").innerHTML = "Mark is currently present on the server.";
+				document.getElementById("title-head").innerHTML = "Mark's Presence Timer";
+				document.title = "Mark's Presence Timer";
+			}
 		} else {
-			document.getElementById("thething").innerHTML = "Mark is currently present on the server.";
+			document.getElementById("watcher").innerHTML = "Mark has been <b>present</b> on the server for:";
+			document.getElementById("title-head").innerHTML = "Mark's Presence Timer";
+			document.title = "Mark's Presence Timer";
 		}
-	} else {
-		document.getElementById("watcher").innerHTML = "Mark has been <b>present</b> on the server for:";
+		document.getElementById("canary").innerHTML = "Oh, there you are!";
+	} else if (markLeaveData.since == null) {
+		document.getElementById("thething").innerHTML = "an unknown amount of time";
 	}
-	document.getElementById("canary").innerHTML = "Oh, there you are!";
-} else if (markLeaveData.since == null) {
-	document.getElementById("thething").innerHTML = "an unknown amount of time";
-}
-if (markLeaveData.since != null) {
-	var update = setInterval(function(){
-		var date = new Date();
-		var msdiff = Math.abs(date - markLeaveData.since);
-		
-		var secdiffTotal = msdiff / 1000;
-		var mindiffTotal = secdiffTotal / 60;
-		var hrdiffTotal = mindiffTotal / 60;
-		var daydiffTotal = hrdiffTotal / 24;
-		
-		var secdiff = Math.floor(secdiffTotal % 60);
-		var mindiff = Math.floor(mindiffTotal % 60);
-		var hrdiff = Math.floor(hrdiffTotal % 24);
-		var daydiff = Math.floor(daydiffTotal);
-		
-		document.getElementById("thething").innerHTML = daydiff + " Days, " + hrdiff + " Hours, " + mindiff + " Minutes, and " + secdiff + " Seconds. "
-	}, 1000)
-}
+	if (markLeaveData.since != null) {
+		var update = setInterval(function(){
+			var date = new Date();
+			var msdiff = Math.abs(date - markLeaveData.since);
+			
+			var secdiffTotal = msdiff / 1000;
+			var mindiffTotal = secdiffTotal / 60;
+			var hrdiffTotal = mindiffTotal / 60;
+			var daydiffTotal = hrdiffTotal / 24;
+			
+			var secdiff = Math.floor(secdiffTotal % 60);
+			var mindiff = Math.floor(mindiffTotal % 60);
+			var hrdiff = Math.floor(hrdiffTotal % 24);
+			var daydiff = Math.floor(daydiffTotal);
+			
+			document.getElementById("thething").innerHTML = daydiff + " Days, " + hrdiff + " Hours, " + mindiff + " Minutes, and " + secdiff + " Seconds. "
+		}, 1000)
+	}
+}, 500)
