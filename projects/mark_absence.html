@@ -3,25 +3,25 @@
 	<head>
 	<!-- Thanks, JS-Cookie for saving me headache! :-) -->
 	<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+	<meta property="og:title" content="Mark's Absence">
+	<meta property="og:site_name" content="Red's Projects">
+	<meta property="og:url" content="https://redsql.github.io/">
+	<meta property="og:description" content="Ever wondered for how long does Mark leave for? Well don't you worry! This page got you covered!">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="../res/style.css">
-		<title>Mark's Absence Counter</title>
+		<title>Mark's Absence Timer</title>
 		<style>
 			.date {
 				color: #ffd300;
 				font-size: 220%;
 			}
-			noscript {
-				font-size: 50px;
-				color: #ff0000;
-			}
 		</style>
 	</head>
 	<body>
-		<h1>Mark's Absence Counter</h1>
-		<noscript>Hey, sorry to break it to ya, but this site won't do without JS. Sorry.</noscript>
-		<p>Ever wondered for how long does Mark leave for? Well don't you worry! This (conceptual) page is made just for this purpose!</p>
-		<p id='watcher'>It has been:</p><p class='date' id='thething'></p>
+		<h1>Mark's Absence Timer</h1>
+		<noscript><b><h2>This page will not work without Javascript, sorry.</h2></b></noscript>
+		<p>Ever wondered how long it has been since Mark left the server? This project shows you just that!</p>
+		<p id='watcher'>At the moment, it has been:</p><p class='date' id='thething'></p>
 		<p id='watcher2'>...since Mark has left the server.</p>
 		<p id='invalidDataCanary'></p>
 		<br><br>
@@ -42,17 +42,24 @@
 				<br><br>
 				Longer answer: Mark has this tendency to... Randomly leave our server, sometimes outright for no apparent reason. He usually doesn't leave any notice about him leaving and reasons for doing so. This sole purpose of this page is just to see the amount of time that Mark has been gone from the server since he left. He might come back... At some point... Eventually... At least I am hoping that would be the case.
 			</details>
+			<hr>
+			<details id="faq-when-mark-will-be-back">
+			<summary>
+				When he will come back?
+			</summary>
+				I don't know. Just whenever he feels like it.
+			</details>
 		</div>
 	</body>
 	<footer>
 		<div class='bottom-footer'>
 			<p id='canary'>Where did you go, Mark? :(</p>
 			<hr>
-			<!-- EU Law compliance stuff. -->
-			<p class='legal'>Disclosure: this website utilizes cookies in order to provide a better experience to the end user, and to cache data (like last known leave date). Want to erase a singular cookie I use? Click the button below.</p>
+			<p class='legal'>This page on this website utilizes cookies in order to provide a better experience to the end user, like caching response data from the API (e.g leave date, presence status). You can erase singular cookie I use by pressing the button below.</p>
 			<br>
 			<input id="nocookie" type="submit" name="button" value="Delete My Cookie"\>
 			<p>(The cookie will be gone until the next page visit.)</p>
+			<noscript><b>The button will not do anything without Javascript enabled.</b></noscript>
 				<hr>
 				<ul>
 					<li><a href='https://github.com/RedSQL/redsql.github.io/issues/new' class='footer-t'>Have an issue?</a></li>
