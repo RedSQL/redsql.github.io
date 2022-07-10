@@ -1,7 +1,7 @@
 // Alright, for disclosure - I am a bad coder. Feel free to improve this mess.
 const Http = new XMLHttpRequest();
 var invalidData;
-document.getElementById('nocookie').onclick = function() {
+document.getElementById('lsPurge').onclick = function() {
 	if (!Cookies.get('leavedata') && !Cookies.get('leavedate')) {
 		alert('You did not have the cookie to begin with. (Or you already got rid of it)');
 	} else {
@@ -13,8 +13,11 @@ document.getElementById('nocookie').onclick = function() {
 let markLeaveData = {};
 if (Cookies.get('leavedata')) {
 	markLeaveData = JSON.parse(Cookies.get('leavedata'));
-	markLeaveData.since = +new Date(markLeaveData.since);
+	if (markLeaveData.invalid != true || !markLeaveData.invalid) {
+		markLeaveData.since = +new Date(markLeaveData.since);
+	}
 } else {
+	// todo: catch http error and warn user about it?
 	Http.open("GET", "https://pavluk.org/markabsence.json", true);
 	Http.onreadystatechange = (e) => {
 		if (Http.readyState != 4 || Http.status != 200) return;
@@ -24,20 +27,23 @@ if (Cookies.get('leavedata')) {
 	};
 	Http.send();
 }
-if (!markLeaveData) {
-	console.log("Cannot retrieve ts on first try, using hardcoded value...");
-	Cookies.set('leavedata', '{}', {expires: 3});
-	markLeaveData = {present:true,since:null};
-	invalidData = true;
-}
+var noDataObtainedTimeout = setTimeout(function() {
+	if (Object.keys(markLeaveData).length === 0) {
+		console.log("markLeaveData is 0 length after a while. Http error? Resorting to hardcoded value...");
+		markLeaveData = {present:true,since:null,invalid:true};
+		Cookies.set('leavedata', '{"present":true,"since":null,"invalid":true}', {expires: 2});
+		invalidData = true;
+	}
+}, 5000)
 var updateTimerRep = setInterval(function() {
 	if (markLeaveData.present) {
+		clearTimeout(noDataObtainedTimeout);
 		clearInterval(updateTimerRep);
 		document.getElementById("thething").style.color="#58fb55";
 		document.getElementById("watcher2").remove();
 		if (markLeaveData.since == null) {
 			document.getElementById("watcher").remove();
-			if (invalidData === true) { 
+			if (invalidData === true || markLeaveData.invalid) { 
 				document.getElementById("thething").innerHTML = "Mark is currently present on the server<b style='color:#FF0000'>*</b>";
 				document.getElementById("invalidDataCanary").innerHTML = "<b style='color:#FF0000'>*</b> The data you see originated from a hardcoded value. It's likely that it isn't accurate.";
 			} else {
@@ -54,7 +60,7 @@ var updateTimerRep = setInterval(function() {
 	} else if (markLeaveData.since == null) {
 		document.getElementById("thething").innerHTML = "an unknown amount of time";
 	}
-	if (markLeaveData.since != null) {
+	if (markLeaveData.since != null && Object.keys(markLeaveData).length != 0) {
 		var update = setInterval(function(){
 			var date = new Date();
 			var msdiff = Math.abs(date - markLeaveData.since);
