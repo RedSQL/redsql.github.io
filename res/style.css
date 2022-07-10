@@ -142,3 +142,7 @@ iframe, .image {
 .faq-box h2 {
 	margin-top: 0px;
 }
+
+.faq-box li {
+	font-size: 16px; 
+}
